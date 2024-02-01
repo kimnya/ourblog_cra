@@ -6,6 +6,7 @@ import Register from "./Register";
 import Layout from "./Layout";
 // import MainPage from "../page/MainPage";
 import EditPage from "../page/EditPage";
+import MainPage from "../page/MainPge";
 // import Articleread from "../page/ArticleRead";
 // import MyInfoPage from "../page/myInfoPage";
 // import AllArticlePage from "../page/AllArticlePage";
@@ -14,13 +15,14 @@ import EditPage from "../page/EditPage";
 const Router = () => {
   return (
     <>
-      <Routes>
-        <Suspense fallback="..loading">
+      <Suspense fallback="..loading">
+        <Routes>
           <Route path="/" element={<Layout />}>
+            <Route index element={<MainPage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            {/* <Route index element={<MainPage />} />
-            <Route path="/search" element={<SearchPage />} />
+
+            {/* <Route path="/search" element={<SearchPage />} />
             <Route path="/readPage/:postId" element={<Articleread />} /> */}
             {/* <Route
               path="/category/:categoryName"
@@ -32,8 +34,8 @@ const Router = () => {
             <Route path="/write" element={<EditPage />} />
             {/* </Route> */}
           </Route>
-        </Suspense>
-      </Routes>
+        </Routes>
+      </Suspense>
     </>
   );
 };
