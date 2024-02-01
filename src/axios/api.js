@@ -90,7 +90,7 @@ export const getCategories = async () => {
 //카테고리 생성 호출
 export const createCategory = async () => {
   const response = await axios.post(
-    "http://localhost:8081/category/create",
+    "/category/create",
     { categoryName: "" },
     {
       headers: {
@@ -104,14 +104,11 @@ export const createCategory = async () => {
 
 //카테고리 삭제 호출
 export const deleteCategory = async (categoryId) => {
-  const response = await axios.delete(
-    `http://localhost:8081/category/${categoryId}`,
-    {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-    }
-  );
+  const response = await axios.delete(`/category/${categoryId}`, {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+    },
+  });
   return response;
 };
 
