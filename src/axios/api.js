@@ -192,9 +192,9 @@ export const minusLikeCnt = async ({ queryKey }) => {
 };
 
 //게시물포스팅 호출
-export const postContent = async ({ data }) => {
+export const postContent = async (data) => {
   const reponse = axios.post(
-    "http://localhost:8081/posting/create",
+    "/posting/create",
     {
       title: data.title,
       content: data.content,

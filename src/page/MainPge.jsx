@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import ArticleList from "../components/ArticleList";
 
 const MainPage = () => {
   const navigate = useNavigate();
@@ -16,6 +17,7 @@ const MainPage = () => {
 
   return (
     <>
+      <ArticleList />
       <Link to="/write">글 작성하기</Link>
     </>
   );
