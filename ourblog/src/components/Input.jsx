@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import styled, { css } from "styled-components";
-import { palette } from "./../style/palette";
+import { palette } from "../style/palette";
 
 const InputStyled = styled.input`
   display: inline-flex;
