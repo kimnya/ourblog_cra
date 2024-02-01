@@ -8,6 +8,7 @@ import Button from "./Button";
 import styled from "styled-components";
 import { useQuery } from "@tanstack/react-query";
 import { getProfile } from "../axios/api";
+import SideBar from "./Sidebar";
 
 const HeaderStyled = styled.div`
   display: flex;
@@ -79,12 +80,12 @@ const Header = () => {
       {/* 로그아웃 & 닉네임 띄우는 부분 더 이쁘게 */}
 
       <HeaderStyled>
-        {/* <SideBar
+        <SideBar
           isTogle={isTogle}
           sideBarToggleHandler={sideBarToggleHandler}
           reactIconsSize={reactIconsSize}
           editToggleHandler={editToggleHandler}
-        /> */}
+        />
         <Title />
         <div className="mainpageIcons">
           {isTogle.darkMode ? (
