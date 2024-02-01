@@ -56,7 +56,7 @@ const EditCtegory = ({ setFocus }) => {
   const [editName, setName] = useState();
 
   const editValue = (evt, idx) => {
-    const categories = categoryArray.data.categories;
+    const categories = categoryArray.data.data.categories;
     const newCategryName = [...categories];
     newCategryName[idx].categoryName = evt.target.value;
     setName(evt.target.value);
@@ -111,7 +111,7 @@ const EditCtegory = ({ setFocus }) => {
         />
       </div>
       {categoryArray &&
-        categoryArray.data.categories.map((category, idx) => {
+        categoryArray.data.data.categories.map((category, idx) => {
           const { id, categoryName } = category;
 
           return (

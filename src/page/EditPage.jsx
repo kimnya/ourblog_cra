@@ -73,12 +73,13 @@ const EditPage = () => {
     queryFn: getCategories,
     enabled: localStorage.getItem("accessToken") !== null,
   });
+  console.log("ca", getCategory);
   const getProfileApi = useQuery({
     queryKey: ["getProfile"],
     queryFn: getProfile,
     enabled: localStorage.getItem("accessToken") !== null,
   });
-  console.log(getProfileApi);
+  console.log("pro", getProfileApi);
 
   const selectCategory = (evt) => {
     setSelected(evt.target.value);
@@ -94,18 +95,14 @@ const EditPage = () => {
         onSubmit={(evt) => {
           preventSubmit(evt);
           navgate("/");
-          postContentApi.mutate({
+          const data = {
             title: title,
             content: values,
             nickName: getProfileApi.data.data.nickname,
             categoryId: selected,
-          });
-          console.log("d", {
-            title: title,
-            content: values,
-            nickName: getProfileApi.data.data.nickname,
-            categoryId: selected,
-          });
+          };
+          postContentApi.mutate(data);
+          console.log("d", data);
         }}
       >
         <label htmlFor="title">title</label>
@@ -122,7 +119,7 @@ const EditPage = () => {
           value={title || ""}
         />
         <select onChange={selectCategory} value={selected}>
-          {getCategory.data.categories.map((category) => {
+          {getCategory.data.data.categories.map((category) => {
             return (
               <option key={category.id} value={category.id}>
                 {category.categoryName}
@@ -136,18 +133,14 @@ const EditPage = () => {
           onSubmit={(evt) => {
             preventSubmit(evt);
             navgate("/");
-            postContentApi.mutate({
+            const data = {
               title: title,
               content: values,
               nickName: getProfileApi.data.data.nickname,
               categoryId: selected,
-            });
-            console.log("d", {
-              title: title,
-              content: values,
-              nickName: getProfileApi.data.data.nickname,
-              categoryId: selected,
-            });
+            };
+            postContentApi.mutate(data);
+            console.log("d", data);
           }}
         >
           작성완료

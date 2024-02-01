@@ -42,11 +42,13 @@ const SideBar = ({
         <RxHamburgerMenu size={reactIconsSize} onClick={sideBarToggleHandler} />
         <SideBarBox $isTogle={isTogle}>
           <HiXMark size={reactIconsSize} onClick={sideBarToggleHandler} />
-          <CategryList
-            sideBarToggleHandler={sideBarToggleHandler}
-            isTogle={isTogle}
-            editToggleHandler={editToggleHandler}
-          />
+          {isTogle.sideBar && (
+            <CategryList
+              sideBarToggleHandler={sideBarToggleHandler}
+              isTogle={isTogle}
+              editToggleHandler={editToggleHandler}
+            />
+          )}
         </SideBarBox>
       </SideBarStyle>
     </>

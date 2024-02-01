@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Login from "./Login";
 import Register from "./Register";
@@ -15,27 +15,25 @@ import MainPage from "../page/MainPge";
 const Router = () => {
   return (
     <>
-      <Suspense fallback="..loading">
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<MainPage />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<MainPage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
 
-            {/* <Route path="/search" element={<SearchPage />} />
+          {/* <Route path="/search" element={<SearchPage />} />
             <Route path="/readPage/:postId" element={<Articleread />} /> */}
-            {/* <Route
+          {/* <Route
               path="/category/:categoryName"
               element={<AllArticlePage />}
             /> */}
-            {/* <Route path="/articleAll" element={<AllArticlePage />} /> */}
-            {/* <Route element={<PrivateRoute />}> */}
-            {/* <Route path="/myPage" element={<MyInfoPage />} /> */}
-            <Route path="/write" element={<EditPage />} />
-            {/* </Route> */}
-          </Route>
-        </Routes>
-      </Suspense>
+          {/* <Route path="/articleAll" element={<AllArticlePage />} /> */}
+          {/* <Route element={<PrivateRoute />}> */}
+          {/* <Route path="/myPage" element={<MyInfoPage />} /> */}
+          <Route path="/write" element={<EditPage />} />
+          {/* </Route> */}
+        </Route>
+      </Routes>
     </>
   );
 };

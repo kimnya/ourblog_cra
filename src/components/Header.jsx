@@ -34,19 +34,15 @@ const Header = () => {
     darkMode: false,
     searchBar: false,
     logined: false,
-    edit: false,
+    edit: true,
     update: false,
   });
 
   const getProfileApi = useQuery({
     queryKey: ["getProfile"],
     queryFn: getProfile,
-    enabled: localStorage.getItem("accessToken") !== null,
+    enabled: false,
   });
-
-  useEffect(() => {
-    setTogle((prev) => ({ ...prev, logined: !prev.logined }));
-  }, []);
 
   const navigate = useNavigate();
   const reactIconsSize = "22px";

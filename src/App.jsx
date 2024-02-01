@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense, useEffect } from "react";
 import Input from "./components/Input";
 import Button from "./components/Button";
 import Title from "./components/Title";
@@ -12,8 +12,10 @@ import { GlobalStyle } from "./style/GobalStyle";
 const App = () => {
   return (
     <div>
-      <GlobalStyle />
-      <Router />
+      <Suspense fallback="..loading">
+        <GlobalStyle />
+        <Router />
+      </Suspense>
     </div>
   );
 };

@@ -84,7 +84,7 @@ const CategryList = ({ isTogle, editToggleHandler, sideBarToggleHandler }) => {
           ) : (
             <>
               <p>
-                {categoryArray && getProfileApi.data.data.nickname}의 카테고리
+                {getProfileApi && getProfileApi.data.data.nickname}의 카테고리
                 <span>
                   <FaGear
                     size={"24px"}
@@ -112,7 +112,7 @@ const CategryList = ({ isTogle, editToggleHandler, sideBarToggleHandler }) => {
               {isTogle.edit === true && <EditCtegory setFocus={setFocus} />}
               <ul>
                 {categoryArray &&
-                  categoryArray.data.categories.map((category) => {
+                  categoryArray.data.data.categories.map((category) => {
                     const { id, categoryName } = category;
                     return (
                       <li key={id} onClick={sideBarToggleHandler}>
