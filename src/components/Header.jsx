@@ -46,7 +46,7 @@ const Header = () => {
 
   useEffect(() => {
     setTogle((prev) => ({ ...prev, logined: !prev.logined }));
-  }, [localStorage.getItem("accessToken")]);
+  }, []);
 
   const navigate = useNavigate();
   const reactIconsSize = "22px";

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Input from "../components/Input";
 import { palette } from "../style/palette";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { getCategories, postContent } from "../axios/api";
+import { getCategories, getProfile, postContent } from "../axios/api";
 import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
 import EditQuill from "../components/EditQuill";
@@ -69,10 +69,16 @@ const EditPage = () => {
   });
 
   const getCategory = useQuery({
-    queryKey: ["myInfo"],
+    queryKey: ["getCategory"],
     queryFn: getCategories,
     enabled: localStorage.getItem("accessToken") !== null,
   });
+  const getProfileApi = useQuery({
+    queryKey: ["getProfile"],
+    queryFn: getProfile,
+    enabled: localStorage.getItem("accessToken") !== null,
+  });
+  console.log(getProfileApi);
 
   const selectCategory = (evt) => {
     setSelected(evt.target.value);
@@ -91,13 +97,13 @@ const EditPage = () => {
           postContentApi.mutate({
             title: title,
             content: values,
-            nickName: getCategory.data.data.nickname,
+            nickName: getProfileApi.data.data.nickname,
             categoryId: selected,
           });
           console.log("d", {
             title: title,
             content: values,
-            nickName: getCategory.data.data.nickname,
+            nickName: getProfileApi.data.data.nickname,
             categoryId: selected,
           });
         }}
@@ -116,7 +122,7 @@ const EditPage = () => {
           value={title || ""}
         />
         <select onChange={selectCategory} value={selected}>
-          {getCategory.data.data.categories.map((category) => {
+          {getCategory.data.categories.map((category) => {
             return (
               <option key={category.id} value={category.id}>
                 {category.categoryName}
@@ -133,13 +139,13 @@ const EditPage = () => {
             postContentApi.mutate({
               title: title,
               content: values,
-              nickName: getCategory.data.data.nickname,
+              nickName: getProfileApi.data.data.nickname,
               categoryId: selected,
             });
             console.log("d", {
               title: title,
               content: values,
-              nickName: getCategory.data.data.nickname,
+              nickName: getProfileApi.data.data.nickname,
               categoryId: selected,
             });
           }}

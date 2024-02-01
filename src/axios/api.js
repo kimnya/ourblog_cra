@@ -26,7 +26,7 @@ export const getProfile = async () => {
         axios
           .post(
             "/member/reissue",
-            // { refreshToken: getCookie(refreshToken) },
+            { refreshToken: getCookie("refreshToken") },
             {
               headers: {
                 Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -36,6 +36,8 @@ export const getProfile = async () => {
           .then((response) => {
             const accessToken = response.data.accessToken;
             localStorage.setItem("accessToken", accessToken);
+          })
+          .then(() => {
             axios.get("/member/myPage", {
               headers: {
                 Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
