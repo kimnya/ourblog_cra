@@ -9,12 +9,12 @@ import Register from "./components/Register";
 const App = () => {
   return (
     <div>
-      {/* <Header /> */}
+      <Header />
       <Input />
       <Button>저장</Button>
       <Title />
-      {/* <Login /> */}
-      <Register />
+      <Login />
+      {/* <Register /> */}
     </div>
   );
 };

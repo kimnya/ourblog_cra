@@ -35,7 +35,7 @@ const Register = () => {
 
   const registerSubmit = async (data) => {
     await axios
-      .post("api/member/join", {
+      .post("/member/join", {
         headers: {
           "Content-type": "application/json",
         },

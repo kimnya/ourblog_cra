@@ -39,7 +39,7 @@ const Login = () => {
   const loginSubmit = async (data) => {
     try {
       await axios
-        .post("api/member/login", {
+        .post("/member/login", {
           email: data.email,
           password: data.password,
         })
