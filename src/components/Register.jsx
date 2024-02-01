@@ -93,7 +93,7 @@ const Register = () => {
             },
             onBlur: async () => {
               await axios
-                .get(`api/member/checkEmail`, {
+                .get(`/member/checkEmail`, {
                   headers: {
                     "Content-type": "application/json",
                   },
@@ -132,10 +132,7 @@ const Register = () => {
             },
             onBlur: async () => {
               await axios
-                .get(`api/member/checkNickname`, {
-                  headers: {
-                    "Content-type": "application/json",
-                  },
+                .get(`/member/checkNickname`, {
                   params: { nickname: getValues("nickname") },
                 })
                 .then((response) => {
@@ -146,6 +143,7 @@ const Register = () => {
                   }
                 })
                 .catch((err) => {
+                  console.log(err);
                   const resp = err.response;
                   if (resp.status === 400) {
                     alert(resp.data);
